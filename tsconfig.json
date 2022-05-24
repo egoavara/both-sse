@@ -1,7 +1,6 @@
 {
     "include": [
         "./src/**/*.ts",
-        "./src/**/*.js",
     ],
     "compilerOptions": {
         /* Language and Environment */

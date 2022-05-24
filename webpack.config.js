@@ -2,13 +2,33 @@ const path = require('path')
 const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
 
 module.exports = {
-    mode : 'production',
-    entry : path.resolve(__dirname, './polyfill/eventsource-polyfill.js'),
+    mode: 'production',
+    entry: path.resolve(__dirname, './src/sse.ts'),
+    module: {
+        rules: [
+            {
+                test: /\.ts$/,
+                loader: 'ts-loader',
+                options: {
+                    configFile: path.resolve(__dirname, './browser/tsconfig.json'),
+                },
+                exclude: /node_modules/,
+            },
+        ],
+    },
     plugins: [
-        new NodePolyfillPlugin()
+        new NodePolyfillPlugin(),
     ],
+    resolve: {
+        extensions: ['.ts', '.js'],
+    },
     output: {
-        filename: 'eventsource-polyfill.bundle.js',
-        path: path.resolve(__dirname, './polyfill'),
+        filename: 'sse.js',
+        path: path.resolve(__dirname, './browser'),
+        library: {
+            name: 'bothsse',
+            type: 'umd',
+        },
+
     },
 }

@@ -127,6 +127,10 @@ dist
 .pnp.*
 
 
-cjs/sse-*.*
-esm/sse-*.*
-polyfill/eventsource-polyfill.bundle.js*
+cjs/**/*.js
+cjs/**/*.d.ts
+esm/**/*.js
+esm/**/*.d.ts
+browser/**/*.js
+browser/**/*.txt
+browser/**/*.d.ts

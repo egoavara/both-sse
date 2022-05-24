@@ -129,3 +129,4 @@ dist
 
 cjs/sse-*.*
 esm/sse-*.*
+polyfill/eventsource-polyfill.bundle.js*

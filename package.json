@@ -33,7 +33,7 @@
     "watch": "npm run watch:cjs & npm run watch:esm",
     "watch:cjs": "rimraf ./cjs/sse-*.{js,js.map,d.ts,d.ts.map,tsbuildinfo} && tsc -p ./cjs/tsconfig.json --watch",
     "watch:esm": "rimraf ./esm/sse-*.{js,js.map,d.ts,d.ts.map,tsbuildinfo} && tsc -p ./esm/tsconfig.json --watch",
-    "prepack": "npm build"
+    "prepack": "npm run build"
   },
   "keywords": [],
   "author": "egoavara",

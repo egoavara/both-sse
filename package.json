@@ -1,0 +1,51 @@
+{
+  "name": "both-sse",
+  "version": "0.1.0",
+  "description": "",
+  "main" : "./cjs/sse-node.js",
+  "module" : "./esm/sse-node.js",
+  "browser" : "./esm/sse-browser.js",
+  "exports": {
+    ".": {
+      "node": {
+        "import": "./esm/sse-node.js",
+        "require": "./cjs/sse-node.js"
+      },
+      "browser": {
+        "import": "./esm/sse-browser.js",
+        "require": "./cjs/sse-browser.js"
+      }
+    }
+  },
+  "files": [
+    "cjs/**/*.d.ts",
+    "cjs/**/*.js",
+    "cjs/package.json",
+    "esm/**/*.d.ts",
+    "esm/**/*.js",
+    "esm/package.json"
+  ],
+  "scripts": {
+    "test:open-ssesvr-ping": "node ./test/ssesvr-ping",
+    "build": "npm run build:cjs & npm run build:esm",
+    "build:cjs": "rimraf ./cjs/sse-*.{js,js.map,d.ts,d.ts.map,tsbuildinfo} && tsc -p ./cjs/tsconfig.json",
+    "build:esm": "rimraf ./esm/sse-*.{js,js.map,d.ts,d.ts.map,tsbuildinfo} && tsc -p ./esm/tsconfig.json",
+    "watch": "npm run watch:cjs & npm run watch:esm",
+    "watch:cjs": "rimraf ./cjs/sse-*.{js,js.map,d.ts,d.ts.map,tsbuildinfo} && tsc -p ./cjs/tsconfig.json --watch",
+    "watch:esm": "rimraf ./esm/sse-*.{js,js.map,d.ts,d.ts.map,tsbuildinfo} && tsc -p ./esm/tsconfig.json --watch",
+    "prepack": "npm build"
+  },
+  "keywords": [],
+  "author": "egoavara",
+  "license": "ISC",
+  "devDependencies": {
+    "@fastify/cors": "^7.0.0",
+    "@types/eventsource": "^1.1.8",
+    "fastify": "^3.29.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "eventsource": "^2.0.2"
+  }
+}

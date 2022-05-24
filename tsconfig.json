@@ -1,0 +1,25 @@
+{
+    "include": [
+        "./src/**/*.ts",
+        "./src/**/*.js",
+    ],
+    "compilerOptions": {
+        /* Language and Environment */
+        "target": "es2022",
+        "module": "esnext",
+        "moduleResolution": "node",
+        /* Emit */
+        "declaration": true,
+        // "declarationMap": true,
+        // "emitDeclarationOnly": true,
+        // "sourceMap": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true, /* Ensure that casing is correct in imports. */
+        /* Type Checking */
+        "strict": true,
+        "skipLibCheck": true,
+        // 
+        "allowJs": true,
+        "checkJs": false,
+    }
+}
